@@ -21,7 +21,7 @@ from webapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('products/<int:pk>', ProductView.as_view(), name='product_view'),
+    path('<int:pk>', ProductView.as_view(), name='product_view'),
     path('add/', ProductCreate.as_view(), name='add'),
     path('<int:pk>/edit', product_edit_view, name='edit'),
     path('<int:pk>/delete', delete_product_view, name='delete'),

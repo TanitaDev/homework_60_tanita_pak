@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
+from webapp.forms import ProductForm
 from webapp.models import Product
 
 
@@ -19,11 +20,12 @@ class ProductView(DetailView):
 
 
 class ProductCreate(CreateView):
-    template_name = 'article/create.html'
+    template_name = 'add_product.html'
     model = Product
+    form_class = ProductForm
 
-    def get_redirect_url(self):
-        return reverse('product.html', kwargs={'pk': self.object.pk})
+    def get_success_url(self):
+        return reverse('product_view', kwargs={'pk': self.object.pk})
 
 
 def product_edit_view(request, pk):

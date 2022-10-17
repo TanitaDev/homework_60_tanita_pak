@@ -8,30 +8,7 @@
 {% block products %}
 <div class="add_block">
     <form action="{% url 'add' %}" method="post">
-        {% csrf_token %}
-        <label>Наименование Товара</label><br/>
-        <input type="text" name="name"/><br/>
-
-        <label>Описание категории</label><br/>
-        <textarea name="description" id="" cols="30" rows="10"></textarea><br/>
-
-        <label>Изображение</label><br/>
-        <input type="text" name="image"/><br/>
-
-        <label>Категория</label><br/>
-        <select name="category" id="">
-            {% for product in products %}
-            <option value="{{product.category}}">{{product.get_category_display}}</option>
-            {% endfor %}
-        </select><br/>
-
-        <label>Остаток</label><br/>
-        <input type="text" name="remainder"/><br/>
-
-        <label>Цена</label><br/>
-        <input type="number" name="price"/><br/>
-
-        <input class="submit_btn" type="submit" value="Добавить">
+        {% include "partial/product_form.html" %}
     </form>
 </div>
 {% endblock %}
