@@ -5,7 +5,7 @@
 {% block products %}
 <div class="delete_block">
     <h2 class="delete_title">Вы точно хотите удалить данный товар?</h2>
-    <form class="delete_form" method="POST" action="{% url 'delete' products.pk %}">
+    <form class="delete_form" method="POST" action="{% url 'delete' product.pk %}">
         {% csrf_token %}
         <input class="edit_btn" type="submit" value="Подтвердить">
         <a class="delete_btn" href="{% url 'index' %}">Отмена</a>

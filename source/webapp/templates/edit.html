@@ -7,24 +7,8 @@
 {% endblock %}
 {% block products %}
 <div class="categories_edit_block">
-    <form action="{% url 'edit' products.pk %}" method="post">
-        {% csrf_token %}
-        <label for="">Товар</label><br>
-        <input name="name" type="text" value="{{ products.name }}"><br>
-
-        <label for="">Описание товара</label><br>
-        <textarea name="description" id="" cols="30" rows="10">{{ products.description }}</textarea><br>
-
-        <label for="">Изображение</label><br>
-        <input name="image" type="text" value="{{ products.image }}"><br>
-
-        <label for="">Остаток</label><br>
-        <input name="remainder" type="text" value="{{ products.remainder }}"><br>
-
-        <label for="">Цена</label><br>
-        <input name="price" type="text" value="{{ products.price }}"><br><br>
-
-        <input class="submit_btn" type="submit" value="Редактировать товар"><br>
+    <form action="{% url 'edit' product.pk %}" method="post">
+        {% include "partial/product_form.html" %}
     </form>
 </div>
 {% endblock %}

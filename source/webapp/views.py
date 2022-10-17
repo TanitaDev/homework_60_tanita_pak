@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.forms import ProductForm
@@ -28,27 +28,16 @@ class ProductCreate(CreateView):
         return reverse('product_view', kwargs={'pk': self.object.pk})
 
 
-def product_edit_view(request, pk):
-    products = get_object_or_404(Product, pk=pk)
-    if request.method == "GET":
-        context = {
-            "products": products
-        }
-        return render(request, 'edit.html', context)
-    elif request.method == "POST":
-        products.name = request.POST.get("name")
-        products.description = request.POST.get("description")
-        products.image = request.POST.get("image")
-        products.remainder = request.POST.get("remainder")
-        products.price = request.POST.get("price")
-        products.save()
-        return redirect('/')
+class ProductUpdate(UpdateView):
+    template_name = 'edit.html'
+    model = Product
+    form_class = ProductForm
+
+    def get_success_url(self):
+        return reverse('product_view', kwargs={'pk': self.object.pk})
 
 
-def delete_product_view(request, pk):
-    products = get_object_or_404(Product, pk=pk)
-    if request.method == 'GET':
-        return render(request, 'delete.html', context={'products': products})
-    elif request.method == 'POST':
-        products.delete()
-        return redirect('/')
+class ProductDelete(DeleteView):
+    template_name = 'delete.html'
+    model = Product
+    success_url = reverse_lazy('index')
