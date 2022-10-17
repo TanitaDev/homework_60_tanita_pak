@@ -1,0 +1,207 @@
+body {
+    background-color: #006666;
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    cursor: pointer;
+}
+
+.wrapper {
+    width:1120px;
+    margin: 20px auto;
+    padding: 15px 5px;
+    background-color: #F2F3F7;
+    border-radius: 3px;
+    box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+}
+
+.products_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product_block {
+    margin: 20px 20px;
+    display: flex;
+    width: 43%;
+    background: #fff;
+    padding: 15px 15px;
+    border-radius: 8px;
+    color: #000000;
+}
+
+.products_container .img_block {
+    width: 200px;
+    height: 250px;
+    margin-right: 10px;
+}
+
+.products_container .img_block img{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.more_link {
+    display: inline-block;
+    margin-top: 30px;
+    color: #000000;
+    font-weight: bold;
+    transition: all ease 0.3s;
+}
+
+.more_link:hover {
+    color: #006666;
+}
+
+.products_container .content_block {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.single_product_block {
+    display: flex;
+    width: 100%;
+}
+
+.single_product_block .img_block {
+    min-width: 50%;
+    height: 320px;
+    margin-right: 25px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7px 0px;
+}
+
+.nav_block {
+    display: flex;
+}
+
+.nav_block li {
+    list-style-type: none;
+    margin: 0px 10px;
+}
+
+.nav_block li a {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.nav_block li {
+    transition: all ease 0.3s;
+}
+
+.nav_block li:hover{
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+
+}
+
+.logo a {
+    font-weight: bold;
+    font-size: 27px;
+    color: #ffffff;
+}
+
+.logo {
+    transition: all ease 0.3s;
+}
+
+.logo:hover {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+}
+
+.page_title {
+    font-size: 20px;
+    color: #ffffff;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.add_block {
+    padding: 20px 10px;
+}
+
+.categories_list_block {
+    width: 100%;
+    padding: 0px 20px;
+
+}
+
+.categories_form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 6px 2px 8px 0px rgb(0 0 0 / 75%);
+    margin: 20px 0px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.categories_form p{
+    margin-right: 20px;
+}
+
+.edit_btn {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.delete_btn {
+    background-color: #d94035;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit_btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.product_action_form {
+    margin-top: 20px;
+}
+
+.delete_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <a href="{% url 'index' %}">Интернет магазин</a>
+        </div>
+        <ul class="nav_block">
+            <li>
+                <a href="{% url 'index' %}">На главную</a>
+            </li>
+            <li>
+                <a href="{% url 'add' %}">Добавить товар</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<h3 class="page_title">
+    {% block page_title %}
+    {% endblock %}
+</h3>
+<div class="wrapper">
+    <div class="products_container">
+        {% block products %}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block categories%}Категории{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block products %}
+<div class="delete_block">
+    <h2 class="delete_title">Вы точно хотите удалить данный товар?</h2>
+    <form class="delete_form" method="POST" action="{% url 'delete' products.pk %}">
+        {% csrf_token %}
+        <input class="edit_btn" type="submit" value="Подтвердить">
+        <a class="delete_btn" href="{% url 'index' %}">Отмена</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block categories%}Категории{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block products %}
+<div class="single_product_block">
+    <div class="img_block">
+        <img src="{{ product.image }}" alt="">
+    </div>
+    <div class="content_block">
+        <h3>{{ product.name }}</h3>
+        <p>Категория: {{ product.get_category_display }}</p>
+        <b>Цена: {{ product.price }} тг</b>
+        <p>{{ product.description }}</p>
+        <p>Остаток: {{ product.remainder }}</p>
+    </div>
+</div>
+<div class="product_action_form">
+    <form class="" action="{% url 'index' %}">
+        <div class="bnt_block">
+            <a class="edit_btn" href="{% url 'edit' product.pk %}">Редактировать</a>
+            <a class="delete_btn" href="{% url 'delete' product.pk %}">Удалить</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
