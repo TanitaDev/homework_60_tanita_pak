@@ -13,6 +13,9 @@ class IndexView(ListView):
     model = Product
     ordering = ["category", "name"]
 
+    paginate_by = 4
+    paginate_orphans = 1
+
 
 class ProductView(DetailView):
     template_name = "product.html"

@@ -1,56 +1,59 @@
 {% csrf_token %}
-<div class="form_error">{{ form.non_field_errors }}</div><p>
-    <label for="{{ form.name.id_for_label }}">
-        {{form.name.label}}
-    </label>
-    {{form.name}}
-<div class="form-error">
-    {{form.title.errors}}
+<div class="form_item">
+    <div class="form_error">{{ form.non_field_errors }}</div>
+    <p>
+        <label for="{{ form.name.id_for_label }}">
+            {{form.name.label}}
+        </label>
+        {{form.name}}
+    <div class="form-error">
+        {{form.title.errors}}
+    </div>
+    </p>
+    <p>
+        <label for="{{ form.description.id_for_label }}">
+            {{form.description.label}}
+        </label>
+        {{form.description}}
+    <div class="form-error">
+        {{form.description.errors}}
+    </div>
+    </p>
+    <p>
+        <label for="{{ form.image.id_for_label }}">
+            {{form.image.label}}
+        </label>
+        {{form.image}}
+    <div class="form-error">
+        {{form.image.errors}}
+    </div>
+    </p>
+    <p>
+        <label for="{{ form.category.id_for_label }}">
+            {{form.category.label}}
+        </label>
+        {{form.category}}
+    <div class="form-error">
+        {{form.category.errors}}
+    </div>
+    </p>
+    <p>
+        <label for="{{ form.remainder.id_for_label }}">
+            {{form.remainder.label}}
+        </label>
+        {{form.remainder}}
+    <div class="form-error">
+        {{form.remainder.errors}}
+    </div>
+    </p>
+    <p>
+        <label for="{{ form.price.id_for_label }}">
+            {{form.price.label}}
+        </label>
+        {{form.price}}
+    <div class="form-error">
+        {{form.price.errors}}
+    </div>
+    </p>
 </div>
-</p>
-<p>
-    <label for="{{ form.description.id_for_label }}">
-        {{form.description.label}}
-    </label>
-    {{form.description}}
-<div class="form-error">
-    {{form.description.errors}}
-</div>
-</p>
-<p>
-    <label for="{{ form.image.id_for_label }}">
-        {{form.image.label}}
-    </label>
-    {{form.image}}
-<div class="form-error">
-    {{form.image.errors}}
-</div>
-</p>
-<p>
-    <label for="{{ form.category.id_for_label }}">
-        {{form.category.label}}
-    </label>
-    {{form.category}}
-<div class="form-error">
-    {{form.category.errors}}
-</div>
-</p>
-<p>
-    <label for="{{ form.remainder.id_for_label }}">
-        {{form.remainder.label}}
-    </label>
-    {{form.remainder}}
-<div class="form-error">
-    {{form.remainder.errors}}
-</div>
-</p>
-<p>
-    <label for="{{ form.price.id_for_label }}">
-        {{form.price.label}}
-    </label>
-    {{form.price}}
-<div class="form-error">
-    {{form.price.errors}}
-</div>
-</p>
-<input class="submit_btn" type="submit" value="Добавить">
+<input class="submit_btn" type="submit" value="Подтвердить">
