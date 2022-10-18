@@ -299,3 +299,29 @@ a {
 .add_to_cart i {
     font-size: 25px;
 }
+
+.cart_head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_head_body {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cart_head_item {
+    width: 280px;
+    margin: 0px 15px;
+}
+
+.cart_item {
+    width: 280px;
+    margin: 10px 15px;
+}
+
+.cart_item p {
+    height: 50px;
+    border-bottom: 1px solid black;
+}

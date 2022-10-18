@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Корзина{% endblock %}
+{% block categories%}Категории{% endblock %}
+{% block page_title %}
+Корзина
+{% endblock %}
+{% block products %}
+<div class="cart_block">
+    <div class="cart_head">
+        <p class="cart_head_item">
+            Товар
+        </p>
+        <p class="cart_head_item">
+            Цена
+        </p>
+        <p class="cart_head_item">
+            Количество
+        </p>
+        <p class="cart_head_item">
+            Сумма
+        </p>
+    </div>
+    <div class="cart_head_body">
+        <div class="cart_item">
+            {% for c in cart %}
+            <p class="">{{ c.product.name }}</p>
+            {% endfor %}
+        </div>
+        <div class="cart_item">
+            {% for c in cart %}
+            <p class="">{{ c.product.price }}</p>
+            {% endfor %}
+        </div>
+        <div class="cart_item">
+            {% for c in cart %}
+            <p class="">{{ c.quantity}}</p>
+            {% endfor %}
+        </div>
+        <div class="cart_item">
+            {% for c in cart %}
+            <p class="">{{ c.product.price }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -76,22 +76,15 @@ class ProductDelete(DeleteView):
     success_url = reverse_lazy('index')
 
 
-class AddToCartView(CreateView):
-    model = Cart
-    form_class = AddToCartForm
-    template_name = 'index.html'
-
-    def form_valid(self, form):
-        product = get_object_or_404(Product, pk=self.kwargs.get('pk'))
-        form.instance.product = product
-        return super().form_valid(form)
-
-    def get_redirect_url(self):
-        return reverse('index', kwargs={'pk': self.object.product.pk})
-
-
 def add_to_cart_view(request, pk):
     product = Product.objects.get(pk=pk)
     Cart.objects.create(product=product)
 
     return redirect("index")
+
+
+class CartView(ListView):
+    template_name = "cart.html"
+    model = Cart
+    context_object_name = 'cart'
+
