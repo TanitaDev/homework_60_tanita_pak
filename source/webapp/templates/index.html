@@ -19,6 +19,7 @@
             <p>Категория: {{product.get_category_display}}</p>
             <b>Цена: {{product.price}} $</b>
             <a class="more_link" href="{% url 'product_view' product.pk %}">Посмотреть больше..</a>
+            <a class="add_to_cart" href="{% url 'cart_add' product.id %}">Добавить в корзину <i class="fa-solid fa-cart-arrow-down"></i></a>
         </div>
     </div>
     {% endfor %}

@@ -291,3 +291,11 @@ a {
 .search_form {
     margin: 20px 0px 0px 0px;
 }
+
+.add_to_cart {
+    margin: 30px 0px 0px 0px;
+}
+
+.add_to_cart i {
+    font-size: 25px;
+}

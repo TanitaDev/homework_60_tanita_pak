@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Product(models.Model):
@@ -23,10 +24,11 @@ class Product(models.Model):
     remainder = models.PositiveIntegerField(verbose_name="Остаток от товара")
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Стоимость товара")
 
+    def __str__(self):
+        return self.name
+
 
 class Cart(models.Model):
     product = models.ForeignKey("webapp.Product", related_name="cart", on_delete=models.CASCADE,
                                 verbose_name='Товар')
-    quantity = models.PositiveIntegerField(verbose_name="Количество в корзине")
-
-
+    quantity = models.PositiveIntegerField(verbose_name="Количество в корзине", default=1)

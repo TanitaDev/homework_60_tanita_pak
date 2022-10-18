@@ -4,10 +4,10 @@ from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django.utils.http import urlencode
 
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
 
-from webapp.forms import ProductForm, SearchForm
-from webapp.models import Product
+from webapp.forms import ProductForm, SearchForm, AddToCartForm
+from webapp.models import Product, Cart
 
 
 class IndexView(ListView):
@@ -74,3 +74,24 @@ class ProductDelete(DeleteView):
     template_name = 'delete.html'
     model = Product
     success_url = reverse_lazy('index')
+
+
+class AddToCartView(CreateView):
+    model = Cart
+    form_class = AddToCartForm
+    template_name = 'index.html'
+
+    def form_valid(self, form):
+        product = get_object_or_404(Product, pk=self.kwargs.get('pk'))
+        form.instance.product = product
+        return super().form_valid(form)
+
+    def get_redirect_url(self):
+        return reverse('index', kwargs={'pk': self.object.product.pk})
+
+
+def add_to_cart_view(request, pk):
+    product = Product.objects.get(pk=pk)
+    Cart.objects.create(product=product)
+
+    return redirect("index")
